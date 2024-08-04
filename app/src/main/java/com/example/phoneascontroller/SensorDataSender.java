@@ -19,7 +19,7 @@ public class SensorDataSender {
         serverAddress = InetAddress.getByName(serverIp);
     }
 
-    public void sendSensorData(float[] orientationData) throws IOException {
+    public void sendSensorData(double[] orientationData) throws IOException {
         String message = xyzFormat(orientationData);
         byte[] buffer = message.getBytes();
         DatagramPacket packet = new DatagramPacket(buffer, buffer.length, serverAddress, PORT);
@@ -27,7 +27,7 @@ public class SensorDataSender {
         Log.d("SensorDataSendor","Data sent: "+message);
     }
 
-    public static String xyzFormat(float[] array) {
+    public static String xyzFormat(double[] array) {
         return array[YAW] + "," + array[PITCH] + "," + array[ROLL];
     }
 }

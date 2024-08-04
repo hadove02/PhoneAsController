@@ -21,8 +21,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Sensor gyroscope;
     private SensorDataSender sender;
     private ExecutorService executorService;
-    private float[] accValues = new float[3];
-    private float[] gyroValues = new float[3];
+    private YPR ypr;
     /*
     private TextView[] accelerometerValues;
     private TextView[] gyroscopeValues;
@@ -42,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_GAME);
         sensorManager.registerListener(this, gyroscope, SensorManager.SENSOR_DELAY_GAME);
 
+        ypr = new YPR();
         /*
         accelerometerValues = new TextView[3];
         accelerometerValues[X] = findViewById(R.id.PosiXvalue);
@@ -68,6 +68,31 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            executorService.execute(() -> {
+                try {
+                    ypr.inputAcc(event.values[YPR.AX], event.values[YPR.AY], event.values[YPR.AZ]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        } else if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
+            executorService.execute(() -> {
+                try {
+                    ypr.inputGyro(event.values[YPR.P], event.values[YPR.Q], event.values[YPR.R]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+
+        ypr.update();
+
+        try {
+            sender.sendSensorData(ypr.getRotationValues());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         /*
         float[] sensorValue = event.values.clone();
         float[] formattedSensorValue = new float[3];
@@ -94,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     e.printStackTrace();
                 }
             });
-        }*/
+        }
         if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
             float[] rotationMatrix = new float[9];
             SensorManager.getRotationMatrixFromVector(rotationMatrix, event.values);
@@ -110,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     e.printStackTrace();
                 }
             });
-        }
+        }*/
     }
 
     private void inputTexts(TextView[] views, float[] values) {
