@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             ypr.inputAcc(event.values[YPR.AX], event.values[YPR.AY], event.values[YPR.AZ]);
         } else if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
             ypr.inputGyro(event.values[YPR.P], event.values[YPR.Q], event.values[YPR.R]);
+        } else if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD){
+            ypr.inputElec(event.values[YPR.MX],event.values[YPR.MY],event.values[YPR.MZ]);
         }
 
         inputTexts(rotationValues, ypr.update());
