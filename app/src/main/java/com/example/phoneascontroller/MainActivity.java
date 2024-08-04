@@ -69,30 +69,21 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            executorService.execute(() -> {
-                try {
-                    ypr.inputAcc(event.values[YPR.AX], event.values[YPR.AY], event.values[YPR.AZ]);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
+            ypr.inputAcc(event.values[YPR.AX], event.values[YPR.AY], event.values[YPR.AZ]);
         } else if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
-            executorService.execute(() -> {
-                try {
-                    ypr.inputGyro(event.values[YPR.P], event.values[YPR.Q], event.values[YPR.R]);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
+            ypr.inputGyro(event.values[YPR.P], event.values[YPR.Q], event.values[YPR.R]);
         }
 
         ypr.update();
 
-        try {
-            sender.sendSensorData(ypr.getRotationValues());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        executorService.execute(() -> {
+            try {
+                sender.sendSensorData(ypr.getRotationValues());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
         /*
         float[] sensorValue = event.values.clone();
         float[] formattedSensorValue = new float[3];
