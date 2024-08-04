@@ -6,12 +6,10 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -26,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private TextView[] accelerometerValues;
     private TextView[] gyroscopeValues;
     */
-    private TextView[] orientationValues;
+    private TextView[] rotationValues;
 
     final public int YAW = 0, PITCH = 1, ROLL = 2;
 
@@ -54,10 +52,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         gyroscopeValues[Z] = findViewById(R.id.OriZvalue);
         */
 
-        orientationValues = new TextView[3];
-        orientationValues[YAW] = findViewById(R.id.yawValue);
-        orientationValues[PITCH] = findViewById(R.id.pitchValue);
-        orientationValues[ROLL] = findViewById(R.id.rollValue);
+        rotationValues = new TextView[3];
+        rotationValues[YAW] = findViewById(R.id.yawValue);
+        rotationValues[PITCH] = findViewById(R.id.pitchValue);
+        rotationValues[ROLL] = findViewById(R.id.rollValue);
 
         executorService = Executors.newSingleThreadExecutor();
         try {
@@ -74,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             ypr.inputGyro(event.values[YPR.P], event.values[YPR.Q], event.values[YPR.R]);
         }
 
-        ypr.update();
+        inputTexts(rotationValues, ypr.update());
 
         executorService.execute(() -> {
             try {
@@ -129,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }*/
     }
 
-    private void inputTexts(TextView[] views, float[] values) {
+    private void inputTexts(TextView[] views, double[] values) {
         views[YAW].setText(String.valueOf(values[YAW]));
         views[PITCH].setText(String.valueOf(values[PITCH]));
         views[ROLL].setText(String.valueOf(values[ROLL]));

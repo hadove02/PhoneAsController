@@ -26,7 +26,7 @@ public class YPR {
         gyroValues[R] = r;
     }
 
-    public void update() {
+    public double[] update() {
         double currentTime = System.currentTimeMillis() / 1000.0;
         double dt = currentTime - previousTime;
 
@@ -38,6 +38,8 @@ public class YPR {
         rotationValues[ROLL] = ALPHA * (rotationValues[ROLL] - gyroValues[Q] * dt) + (1.0 - ALPHA) * rollAcc;
 
         previousTime = currentTime;
+
+        return rotationValues;
     }
 
     public double[] getRotationValues() {
