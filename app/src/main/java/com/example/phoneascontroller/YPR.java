@@ -1,5 +1,7 @@
 package com.example.phoneascontroller;
 
+import android.util.Log;
+
 public class YPR {
     public static final int AX = 0, AY = 1, AZ = 2, P = 0, Q = 1, R = 2, MX = 0, MY = 1, MZ = 2, YAW = 0, PITCH = 1, ROLL = 2;
     private static final double ALPHA = 0.98;
@@ -41,10 +43,11 @@ public class YPR {
         double pitchAcc = Math.atan2(accValues[AX], Math.sqrt(accValues[AY] * accValues[AY] + accValues[AZ] * accValues[AZ])) * 180.0 / Math.PI;
         double rollAcc = Math.atan2(accValues[AY], Math.sqrt(accValues[AX] * accValues[AX] + accValues[AZ] * accValues[AZ])) * 180.0 / Math.PI;
 
-        rotationValues[PITCH] = ALPHA * (rotationValues[PITCH] + gyroValues[Q] * dt) + (1.0 - ALPHA) * pitchAcc;
-        rotationValues[ROLL] = ALPHA * (rotationValues[ROLL] - gyroValues[Q] * dt) + (1.0 - ALPHA) * rollAcc;
+        rotationValues[PITCH] = Double.parseDouble(String.format("%.4f", ALPHA * (rotationValues[PITCH] + gyroValues[Q] * dt) + (1.0 - ALPHA) * pitchAcc));
+        rotationValues[ROLL] = Double.parseDouble(String.format("%.4f", ALPHA * (rotationValues[ROLL] - gyroValues[Q] * dt) + (1.0 - ALPHA) * rollAcc));
+        rotationValues[YAW] = Double.parseDouble(String.format("%.4f", rotationValues[YAW] + gyroValues[R] * dt));
 
-
+        /*
         double magYaw = Math.atan2(electricValues[MY] * Math.cos(rotationValues[ROLL]) - electricValues[MZ] * Math.sin(rotationValues[ROLL]),
                 electricValues[MX] * Math.cos(rotationValues[PITCH])
                         + electricValues[MY] * Math.sin(rotationValues[ROLL]) * Math.sin(rotationValues[PITCH])
@@ -52,6 +55,7 @@ public class YPR {
 
 
         rotationValues[YAW] = ALPHA * (rotationValues[YAW] + gyroValues[R] * dt) + (1.0 - ALPHA) * magYaw;
+        */
 
 
         previousTime = currentTime;

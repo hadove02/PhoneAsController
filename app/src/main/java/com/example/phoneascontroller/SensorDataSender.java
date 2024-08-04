@@ -1,7 +1,5 @@
 package com.example.phoneascontroller;
 
-import android.util.Log;
-
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -24,7 +22,6 @@ public class SensorDataSender {
         byte[] buffer = message.getBytes();
         DatagramPacket packet = new DatagramPacket(buffer, buffer.length, serverAddress, PORT);
         socket.send(packet);
-        Log.d("SensorDataSendor","Data sent: "+message);
     }
 
     public static String xyzFormat(double[] array) {
