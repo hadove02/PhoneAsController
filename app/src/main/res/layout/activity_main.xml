@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<!--    <TextView-->
+<!--        android:id="@+id/Position"-->
+<!--        android:layout_width="57dp"-->
+<!--        android:layout_height="24dp"-->
+<!--        android:layout_marginStart="28dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:text="Position"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/Orientation"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="24dp"-->
+<!--        android:layout_marginStart="28dp"-->
+<!--        android:layout_marginTop="152dp"-->
+<!--        android:text="Orientation"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/Position" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/PosiX"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="44dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="Position X"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/Position" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/PosiY"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="44dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="Position Y"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/PosiX" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/PosiZ"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="44dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="Position Z"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/PosiY" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/PosiXvalue"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text=""-->
+<!--        app:layout_constraintStart_toEndOf="@+id/PosiX"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/Position" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/PosiYvalue"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text=""-->
+<!--        app:layout_constraintStart_toEndOf="@+id/PosiY"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/PosiXvalue" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/PosiZvalue"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text=""-->
+<!--        app:layout_constraintStart_toEndOf="@+id/PosiZ"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/PosiYvalue" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/OriX"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="44dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="Orientation X"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/Orientation" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/OriY"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="44dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="Orientation Y"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/OriX" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/OriZ"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="44dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="Orientation Z"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/OriY" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/OriXvalue"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text=""-->
+<!--        app:layout_constraintStart_toEndOf="@+id/OriX"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/Orientation" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/OriYvalue"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text=""-->
+<!--        app:layout_constraintStart_toEndOf="@+id/OriY"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/OriXvalue" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/OriZvalue"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text=""-->
+<!--        app:layout_constraintStart_toEndOf="@+id/OriZ"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/OriYvalue" />-->
+
+    <TextView
+        android:id="@+id/orientation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="72dp"
+        android:text="orientation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/yaw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="64dp"
+        android:text="Yaw Value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orientation" />
+
+    <TextView
+        android:id="@+id/pitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="92dp"
+        android:text="Pitch Value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yaw" />
+
+    <TextView
+        android:id="@+id/roll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="92dp"
+        android:text="Roll Value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pitch" />
+
+    <TextView
+        android:id="@+id/yawValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="68dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toEndOf="@+id/yaw"
+        app:layout_constraintTop_toBottomOf="@+id/orientation" />
+
+    <TextView
+        android:id="@+id/pitchValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="92dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toEndOf="@+id/pitch"
+        app:layout_constraintTop_toBottomOf="@+id/yawValue" />
+
+    <TextView
+        android:id="@+id/rollValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="92dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toEndOf="@+id/roll"
+        app:layout_constraintTop_toBottomOf="@+id/pitchValue" />
+</androidx.constraintlayout.widget.ConstraintLayout>
