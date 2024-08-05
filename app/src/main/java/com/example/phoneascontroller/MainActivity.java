@@ -66,6 +66,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     public void onSensorChanged(SensorEvent event) {
+        float[] gravity, geomagnetic;
+
+        if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+            gravity = event.values;
+        }
+
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             ypr.inputAcc(event.values[YPR.AX], event.values[YPR.AY], event.values[YPR.AZ]);
         } else if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
