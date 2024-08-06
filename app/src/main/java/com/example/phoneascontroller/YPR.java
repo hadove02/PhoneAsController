@@ -30,6 +30,11 @@ public class YPR {
         gyroValues[R] = r;
     }
 
+    public void setYAW(double yaw) {
+        rotationValues[YAW] = yaw;
+    }
+
+
     public void inputElec(double mx, double my, double mz) {
         electricValues[MX] = mx;
         electricValues[MY] = my;
@@ -43,21 +48,9 @@ public class YPR {
         double pitchAcc = Math.atan2(accValues[AX], Math.sqrt(accValues[AY] * accValues[AY] + accValues[AZ] * accValues[AZ])) * 180.0 / Math.PI;
         double rollAcc = Math.atan2(accValues[AY], Math.sqrt(accValues[AX] * accValues[AX] + accValues[AZ] * accValues[AZ])) * 180.0 / Math.PI;
 
-        rotationValues[PITCH] = Double.parseDouble(String.format("%.4f", ALPHA * (rotationValues[PITCH] + gyroValues[Q] * dt) + (1.0 - ALPHA) * pitchAcc));
-        rotationValues[ROLL] = Double.parseDouble(String.format("%.4f", ALPHA * (rotationValues[ROLL] - gyroValues[Q] * dt) + (1.0 - ALPHA) * rollAcc));
-        rotationValues[YAW] = Double.parseDouble(String.format("%.4f", rotationValues[YAW] + gyroValues[R] * dt));
-
-        /*
-        double magYaw = Math.atan2(electricValues[MY] * Math.cos(rotationValues[ROLL]) - electricValues[MZ] * Math.sin(rotationValues[ROLL]),
-                electricValues[MX] * Math.cos(rotationValues[PITCH])
-                        + electricValues[MY] * Math.sin(rotationValues[ROLL]) * Math.sin(rotationValues[PITCH])
-                        + electricValues[MZ] * Math.cos(rotationValues[ROLL]) * Math.sin(rotationValues[PITCH])) * 180.0 / Math.PI;
-
-
-        rotationValues[YAW] = ALPHA * (rotationValues[YAW] + gyroValues[R] * dt) + (1.0 - ALPHA) * magYaw;
-        */
-
-
+        rotationValues[PITCH] = ALPHA * (rotationValues[PITCH] + gyroValues[Q] * dt) + (1.0 - ALPHA) * pitchAcc;
+        rotationValues[ROLL] = ALPHA * (rotationValues[ROLL] - gyroValues[Q] * dt) + (1.0 - ALPHA) * rollAcc;
+        //rotationValues[YAW] = Double.parseDouble(String.format("%.4f", rotationValues[YAW] + gyroValues[R] * dt));
         previousTime = currentTime;
 
         return rotationValues;
