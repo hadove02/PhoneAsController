@@ -17,14 +17,8 @@ public class SensorDataSender {
         serverAddress = InetAddress.getByName(serverIp);
     }
 
-    public void sendSensorData(double[] orientationData) throws IOException {
-        String message = xyzFormat(orientationData);
-        byte[] buffer = message.getBytes();
-        DatagramPacket packet = new DatagramPacket(buffer, buffer.length, serverAddress, PORT);
+    public void sendSensorData(byte[] sendBuffer) throws IOException {
+        DatagramPacket packet = new DatagramPacket(sendBuffer, sendBuffer.length, serverAddress, PORT);
         socket.send(packet);
-    }
-
-    public static String xyzFormat(double[] array) {
-        return array[YAW] + "," + array[PITCH] + "," + array[ROLL];
     }
 }
